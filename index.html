@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: #f0eeee;
+        }
+        .row{
+            margin-top: 10vh;
+            height: 75vh;
+            background-color: white;
+            border-radius: 10px;
+            
+        }
+        .col-lg-6:first-child{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid rgb(155, 152, 194);
+        }
+        .input-div .form:first-child{
+            margin-top: 20%;
+        }
+        .input-div .form{
+            border-bottom: 1px solid gray;
+            width: 50%;
+            margin: 20px auto;
+            position: relative;
+        }
+        .input-div .form .fa-solid{
+            position: absolute;
+            left: 0;
+            bottom: 5px;
+            font-size: 12px;
+        }
+        
+        .input-div .form input{
+            background-color: transparent;
+            font-size: 15px;
+            outline: none;
+            margin-left: 10px;
+            border: none; 
+            width: 90%;   
+        }
+        .input-div .form:nth-child(2){
+            padding-right: 15px;
+        }
+        .input-div .form .eye{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .input-div .form .eye i{
+            position: absolute;
+            right: 0;
+            bottom: 3px;
+        }
+        .input-div .form .eye .fa-regular{
+            font-size: 13px;
+            color: rgb(66, 66, 66);
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: transparent;
+        } 
+        
+        .input-div .check-grp{
+            margin-left: 25%;
+            text-align: left;
+            margin-bottom: 40px;
+        }     
+        .col-lg-6 img{
+            height: 400px;
+            justify-content: center;   
+        }
+        h1{
+            color: rgb(131, 125, 216);
+            text-shadow: 2px 2px 2px rgb(97, 87, 236);
+        }
+        .btn{
+            background-color: rgb(136, 130, 197);
+            color: white;
+        }
+        a{
+            position: absolute;
+            bottom: 15px; 
+            left: auto;
+            color: rgb(97, 87, 236);
+            text-decoration: underline;
+        }
+        .input-div .form input:-webkit-autofill {
+            -webkit-background-clip: text;
+        }
+        /* js style class */
+        
+        .fa-eye{
+            display: none;
+        } 
+        .fa-eye-open{
+            display: block;
+        }
+        .fa-eye-slash{
+            display: block;
+        }
+        .fa-eye-slash-none{
+            display: none;
+        }
+        /* js style class end */
+
+        @media only screen and (max-width: 767px){
+            .row .dis-non{
+                display: none;
+            }
+        }
+
+    </style>
+  </head>
+  <body>
+      <div class="container">
+            <div class="row p-5">
+                <div class="col-lg-6 col-md-6 dis-non">
+                    <img class="img-fluid" src="C:\Users\USER\Desktop\carton-img\sign-up-form.png" alt="img">
+                    <a href="#">Creat an account</a>
+                </div>
+                <div class="col-lg-6 col-md-6 text-center">
+                    <h1 class="text-capitalize">LOGIN NOW</h1>
+                    <div class="input-div">                       
+                        <div class="form">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" name="name" placeholder="user name" required>
+                        </div>
+                        <div class="form">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" placeholder="password" required>
+                            <div class="eye">
+                                <i class="fa-regular fa-eye"></i>
+                                <i class="fa-sharp fa-regular fa-eye-slash"></i>
+                            </div>
+                        </div>
+                        <div class="check-grp">
+                            <input type="checkbox" name="" id="check">
+                            <label for="check">Remember me</label>
+                        </div>
+                        <button class="btn mb-4" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let password = document.querySelector("input[type=password]");
+            let eye_open = document.querySelector(".fa-eye");
+            let eye_close = document.querySelector(".fa-eye-slash");
+            document.querySelector(".eye").addEventListener("click",()=>{ 
+                if(password.type=="password"){
+                    eye_close.classList.add("fa-eye-slash-none")
+                    eye_open.classList.add("fa-eye-open")
+                    password.type = "text";
+                }
+                else{
+                    eye_close.classList.remove("fa-eye-slash-none")
+                    eye_open.classList.remove("fa-eye-open")
+                    password.type = "password";
+                }
+            })
+        </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
